@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<title>Perfil de Kevin Parada</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<style>
+    body { padding-top: 60px; }
+    .profile-pic { width: 150px; border-radius: 50%; margin-top: -75px; }
+    .banner { height: 150px; background: #0d6efd; }
+    .sidebar { margin-top: 20px; }
+  </style>
+</head>
+<body>
+<!-- Barra de navegación -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<div class="container">
+<a class="navbar-brand" href="#">Perfil</a>
+<div class="collapse navbar-collapse">
+<ul class="navbar-nav ms-auto">
+<li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
+<li class="nav-item"><a class="nav-link" href="#">Mi Perfil</a></li>
+<li class="nav-item"><a class="nav-link" href="#">Conexiones</a></li>
+</ul>
+<button class="btn btn-outline-light ms-2">Cerrar Sesión</button>
+</div>
+</div>
+</nav>
+<!-- Contenido principal -->
+<div class="container">
+<div class="row">
+<!-- Perfil principal -->
+<div class="col-md-8">
+<div class="card">
+<div class="banner"></div>
+<div class="card-body text-center">
+<img alt="Kevin Parada" class="profile-pic" src="77612858-082b-4efd-9ad8-eb28747569e3.png"/>
+<h2 id="nombre">Kevin Parada Martinez</h2>
+<p>La Serena, Chile</p>
+<p>Ingeniero Civil Industrial | Analista de Datos | Automatizador de Procesos</p>
+<p>Apasionado por optimizar operaciones a través de análisis de datos y herramientas digitales.</p>
+<button class="btn btn-primary" onclick="editarNombre()">⚙️ Editar perfil</button>
+</div>
+</div>
+<div class="mt-4">
+<h4>Formación Académica</h4>
+<p><strong>Ingeniero Civil Industrial</strong><br/>Universidad Católica del Norte<br/>2017 - 2022</p>
+<p><strong>Licenciado en Ciencias de la Ingeniería</strong><br/>Universidad Católica del Norte</p>
+<h4 class="mt-4">Experiencia Laboral Reciente</h4>
+<ul>
+<li><strong>Ingeniero de Estudio de Propuestas</strong><br/>Nov 2024 - Actualidad</li>
+<li><strong>Encargado de Control Logístico - El Arriero</strong><br/>Mar 2024 - Nov 2024</li>
+<li><strong>Ingeniero de Control de Gestión - TimeJobs</strong><br/>Dic 2023 - Feb 2024</li>
+<li><strong>Analista de Datos - UCN</strong><br/>Mar 2023 - Jul 2023</li>
+</ul>
+</div>
+</div>
+<!-- Panel lateral con solicitudes -->
+<div class="col-md-4">
+<div class="card mb-3">
+<div class="card-body text-center">
+<h5>Conexiones: <span id="contador-conexiones">10</span></h5>
+<h6>Solicitudes: <span id="contador-solicitudes">2</span></h6>
+</div>
+</div>
+<!-- Solicitudes -->
+<div class="card mb-3" id="user1">
+<div class="card-body d-flex justify-content-between align-items-center">
+<div>
+<strong>Camila Rojas</strong><br/><small>Ingeniera Ambiental</small>
+</div>
+<div>
+<button class="btn btn-success btn-sm" onclick="aceptar('user1')">✔️</button>
+<button class="btn btn-danger btn-sm" onclick="rechazar('user1')">❌</button>
+</div>
+</div>
+</div>
+<div class="card mb-3" id="user2">
+<div class="card-body d-flex justify-content-between align-items-center">
+<div>
+<strong>Tomás Rivera</strong><br/><small>Desarrollador Web</small>
+</div>
+<div>
+<button class="btn btn-success btn-sm" onclick="aceptar('user2')">✔️</button>
+<button class="btn btn-danger btn-sm" onclick="rechazar('user2')">❌</button>
+</div>
+</div>
+</div>
+<!-- Información de contacto -->
+<div class="card">
+<div class="card-body">
+<h5>Contacto</h5>
+<p><strong>Email:</strong> k.parada.martinez98@gmail.com</p>
+<p><strong>Tel:</strong> +569 5066 0707</p>
+<p><strong>LinkedIn:</strong><br/>
+<a href="https://www.linkedin.com/in/kevin-parada-martinez/" target="_blank">
+                kevin-parada-martinez
+              </a>
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Script con comentarios -->
+<script>
+    // Cambia el nombre del perfil
+    function editarNombre() {
+      document.getElementById("nombre").innerText = "Kevin P. Martinez";
+    }
+
+    // Elimina la tarjeta de solicitud y actualiza el contador
+    function eliminarSolicitud(id) {
+      document.getElementById(id).remove();
+      let solicitudes = document.getElementById("contador-solicitudes");
+      solicitudes.innerText = parseInt(solicitudes.innerText) - 1;
+    }
+
+    // Aumenta el número de conexiones
+    function aumentarConexiones() {
+      let conexiones = document.getElementById("contador-conexiones");
+      conexiones.innerText = parseInt(conexiones.innerText) + 1;
+    }
+
+    // Aceptar: suma conexión y elimina solicitud
+    function aceptar(id) {
+      eliminarSolicitud(id);
+      aumentarConexiones();
+    }
+
+    // Rechazar: solo elimina solicitud
+    function rechazar(id) {
+      eliminarSolicitud(id);
+    }
+  </script>
+</body>
+</html>
